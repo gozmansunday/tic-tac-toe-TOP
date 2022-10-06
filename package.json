@@ -4,7 +4,8 @@
   "description": "A Tic Tac Toe game. To be made in completion of The Odin Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tailwindcss -i ./src/input.css -o ./css/main.css",
+    "watch": "tailwindcss -i ./src/input.css -o ./css/main.css --watch"
   },
   "repository": {
     "type": "git",
