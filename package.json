@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/stGozman/tic-tac-toe-TOP/issues"
   },
-  "homepage": "https://github.com/stGozman/tic-tac-toe-TOP#readme"
+  "homepage": "https://github.com/stGozman/tic-tac-toe-TOP#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
 }
