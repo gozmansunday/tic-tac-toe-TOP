@@ -5,7 +5,7 @@ module.exports = {
   darkMode: 'media', // or 'class'
   theme: {
     screens: {
-      sm: '412px',
+      sm: '400px',
       md: '768px',
       lg: '976px',
       xl: '1440px',
@@ -19,7 +19,8 @@ module.exports = {
         light: "#FFFFFF"
       },
       fontFamily: {
-        anon: ['Anonymous Pro', 'monospace'],
+        slab: ['Roboto Slab', 'serif'],
+        bebas: ['Bebas Neue', 'cursive'],
       },
       boxShadow: {
         'header': '0 10px 12px -3px rgba(0, 0, 0, 0.3)',
