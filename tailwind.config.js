@@ -7,6 +7,7 @@ module.exports = {
     screens: {
       sm: '400px',
       md: '768px',
+      al: '800px',
       lg: '976px',
       xl: '1440px',
       '2xl': '1800px',
@@ -19,11 +20,12 @@ module.exports = {
         light: "#FFFFFF"
       },
       fontFamily: {
-        slab: ['Roboto Slab', 'serif'],
+        shoulders: ['Big Shoulders Text', 'cursive'],
         bebas: ['Bebas Neue', 'cursive'],
       },
       boxShadow: {
-        'header': '0 10px 12px -3px rgba(0, 0, 0, 0.3)',
+        'card': '0 12px 12px -3px rgba(0, 0, 0, 0.3)',
+        'button': '.5rem .5rem #252525',
       },
     },
     colors: ({ colors }) => ({

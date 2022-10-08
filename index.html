@@ -4,14 +4,53 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/328486b131.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./css/main.css">
   <title>Tic Tac Toe</title>
 </head>
-<body>
+<body class="container mx-auto">
   <header class="py-2">
-    <h1 class="text-7xl font-bebas text-dark text-center md:text-8xl">
-      Tic Tac Toe
+    <h1 class="text-7xl font-bebas text-dark text-center md:text-[7rem] al:text-[7.5rem] lg:text-8xl">
+      TIC TAC TOE
     </h1>
   </header>
+
+  <main class="flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:mt-8">
+    <!-- Score Board -->
+    <section id="score-board" class="grid grid-cols-2 gap-3 justify-center items-center md:gap-6 al:gap-8 lg:grid-cols-1">
+      <div id="player-one" class="w-40 h-[5.5rem] mt-2 mb-5 bg-dark shadow-card border-4 border-dark rounded-2xl sm:w-[11.5rem] sm:h-28 sm:mt-3 sm:mb-6 md:w-[14rem] md:h-32 md:mb-7 al:w-[16rem] al:h-36 al:mb-8 lg:w-[24rem] lg:h-[8rem] lg:mt-0 lg:mb-0">
+
+      </div>
+      <div id="player-two" class="w-40 h-[5.5rem] mt-2 mb-5 bg-dark shadow-card border-4 border-dark rounded-2xl sm:w-[11.5rem] sm:h-28 sm:mt-3 sm:mb-6 md:w-[14rem] md:h-32 md:mb-7 al:w-[16rem] al:h-36 al:mb-8 lg:w-[24rem] lg:h-[8rem] lg:mt-0 lg:mb-0">
+
+      </div>
+    </section>
+
+    <!-- Game Board -->
+    <section id="game-board" class="grid grid-cols-3">
+      <div class="w-24 h-24 border-r-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+      <div class="w-24 h-24 border-l-[3px] border-r-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+      <div class="w-24 h-24 border-l-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+      <div class="w-24 h-24 border-t-[3px] border-r-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+      <div class="w-24 h-24 border-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+      <div class="w-24 h-24 border-l-[3px] border-t-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+      <div class="w-24 h-24 border-t-[3px] border-r-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+      <div class="w-24 h-24 border-l-[3px] border-t-[3px] border-r-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+      <div class="w-24 h-24 border-l-[3px] border-t-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
+    </section>
+    <!-- Game Info and Buttons -->
+    <section class="font-shoulders flex flex-col justify-center items-center gap-4 mt-6 sm:mt-10 md:mt-14 lg:w-[24rem] lg:mt-0 lg:mb-0">
+      <!-- Game Information -->
+      <p id="game-info" class="text-4xl text-dark sm:text-[2.5rem] md:text-5xl">
+        PLAYER WINS THE GAME!
+      </p>
+      <!-- Buttons -->
+      <div>
+        <button class="text-[2rem] text-dark bg-brand border-4 border-dark py-1 px-8 sm:text-4xl md:text-[2.75rem] sm:py-3 sm:px-12 lg:shadow-button lg:transition lg:ease-in-out lg:duration-300 active:bg-dark active:text-brand lg:hover:shadow-none lg:hover:bg-dark lg:hover:text-brand">
+          PLAY AGAIN
+        </button>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
