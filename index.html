@@ -8,49 +8,66 @@
   <link rel="stylesheet" href="./css/main.css">
   <title>Tic Tac Toe</title>
 </head>
-<body class="container mx-auto">
+<body class="grid grid-rows-[6rem_calc(100vh_-_6rem_-_10rem)_10rem] sm:grid-rows-[6rem_calc(100vh_-_6rem_-_12rem)_12rem] md:grid-rows-[7rem_calc(100vh_-_7rem_-_16rem)_16rem]">
   <header class="py-2">
-    <h1 class="text-7xl font-bebas text-dark text-center md:text-[7rem] al:text-[7.5rem] lg:text-8xl">
+    <h1 class="text-7xl font-bebas text-dark text-center sm:text-[4.8rem] md:text-8xl">
       TIC TAC TOE
     </h1>
   </header>
 
-  <main class="flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:mt-8">
+  <main class="flex flex-col justify-evenly items-center lg:grid lg:grid-cols-3">
     <!-- Score Board -->
-    <section id="score-board" class="grid grid-cols-2 gap-3 justify-center items-center md:gap-6 al:gap-8 lg:grid-cols-1">
-      <div id="player-one" class="w-40 h-[5.5rem] mt-2 mb-5 bg-dark shadow-card border-4 border-dark rounded-2xl sm:w-[11.5rem] sm:h-28 sm:mt-3 sm:mb-6 md:w-[14rem] md:h-32 md:mb-7 al:w-[16rem] al:h-36 al:mb-8 lg:w-[24rem] lg:h-[8rem] lg:mt-0 lg:mb-0">
-
+    <section id="score-board" class="font-shoulders text-dark flex gap-10 sm:gap-12 md:gap-20 lg:gap-10 lg:flex-col">
+      <div id="player-one" class="grid grid-rows-[4fr_3fr] justify-center items-center text-center sm:grid-rows-[3fr_2fr]">
+        <div class="grid grid-cols-2 text-center justify-center items-center gap-5">
+          <i class="fa-solid fa-user text-[2.5rem] sm:text-[3.25rem] md:text-6xl lg:text-7xl"></i>
+          <i class="fa-solid fa-xmark text-[3.3rem] sm:text-[4.4rem] md:text-[5rem] lg:text-[5.5rem]"></i>
+        </div>
+        <p class="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem]">PLAYER 1</p>
       </div>
-      <div id="player-two" class="w-40 h-[5.5rem] mt-2 mb-5 bg-dark shadow-card border-4 border-dark rounded-2xl sm:w-[11.5rem] sm:h-28 sm:mt-3 sm:mb-6 md:w-[14rem] md:h-32 md:mb-7 al:w-[16rem] al:h-36 al:mb-8 lg:w-[24rem] lg:h-[8rem] lg:mt-0 lg:mb-0">
-
+      <div id="player-two" class="grid grid-rows-[4fr_3fr] justify-center items-center text-center sm:grid-rows-[3fr_2fr]">
+        <div class="grid grid-cols-2 text-center justify-center items-center gap-5">
+          <i class="fa-regular fa-circle text-[2.5rem] sm:text-[3.25rem] md:text-6xl lg:text-7xl lg:order-last"></i>
+          <i class="fa-solid fa-user text-[2.5rem] sm:text-[3.25rem] md:text-6xl lg:text-7xl"></i>
+        </div>
+        <p class="text-[1.75rem] sm:text-[2rem] md:text-[2.25rem]">PLAYER 2</p>
       </div>
     </section>
 
     <!-- Game Board -->
-    <section id="game-board" class="grid grid-cols-3">
-      <div class="w-24 h-24 border-r-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-      <div class="w-24 h-24 border-l-[3px] border-r-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-      <div class="w-24 h-24 border-l-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-      <div class="w-24 h-24 border-t-[3px] border-r-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-      <div class="w-24 h-24 border-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-      <div class="w-24 h-24 border-l-[3px] border-t-[3px] border-b-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-      <div class="w-24 h-24 border-t-[3px] border-r-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-      <div class="w-24 h-24 border-l-[3px] border-t-[3px] border-r-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-      <div class="w-24 h-24 border-l-[3px] border-t-[3px] border-dark md:w-32 md:h-32 al:w-36 al:h-36 lg:w-32 lg:h-32"></div>
-    </section>
-    <!-- Game Info and Buttons -->
-    <section class="font-shoulders flex flex-col justify-center items-center gap-4 mt-6 sm:mt-10 md:mt-14 lg:w-[24rem] lg:mt-0 lg:mb-0">
-      <!-- Game Information -->
-      <p id="game-info" class="text-4xl text-dark sm:text-[2.5rem] md:text-5xl">
-        PLAYER WINS THE GAME!
-      </p>
-      <!-- Buttons -->
-      <div>
-        <button class="text-[2rem] text-dark bg-brand border-4 border-dark py-1 px-8 sm:text-4xl md:text-[2.75rem] sm:py-3 sm:px-12 lg:shadow-button lg:transition lg:ease-in-out lg:duration-300 active:bg-dark active:text-brand lg:hover:shadow-none lg:hover:bg-dark lg:hover:text-brand">
-          PLAY AGAIN
-        </button>
+    <section id="game-board" class="">
+      <div class="flex justify-center">
+        <div class="grid grid-cols-3">
+          <div class="w-20 h-20 box-border-1 tictactoe-box"></div>
+          <div class="w-20 h-20 box-border-2 tictactoe-box"></div>
+          <div class="w-20 h-20 box-border-3 tictactoe-box"></div>
+          <div class="w-20 h-20 box-border-4 tictactoe-box"></div>
+          <div class="w-20 h-20 box-border-5 tictactoe-box"></div>
+          <div class="w-20 h-20 box-border-6 tictactoe-box"></div>
+          <div class="w-20 h-20 box-border-7 tictactoe-box"></div>
+          <div class="w-20 h-20 box-border-8 tictactoe-box"></div>
+          <div class="w-20 h-20 box-border-9 tictactoe-box"></div>
+        </div>
       </div>
     </section>
+
+    <section class="hidden lg:block">
+
+    </section>
   </main>
+
+  <!-- Game Info and Buttons -->
+  <section class="font-shoulders flex flex-col justify-around items-center gap-4 pb-6 sm:pb-8 md:pb-12 lg:pt-4">
+    <!-- Game Information -->
+    <p id="game-info" class="text-4xl text-dark sm:text-[2.5rem] md:text-[3rem]">
+      PLAYER 1 WINS THE GAME!
+    </p>
+    <!-- Buttons -->
+    <div>
+      <button class="text-[2rem] text-dark bg-transparent border-4 border-dark py-1 px-8 active:bg-dark active:text-brand sm:text-4xl md:text-5xl md:py-2 md:px-10 lg:hover:bg-dark lg:hover:text-brand lg:transition lg:ease-in-out lg:duration-300">
+        PLAY AGAIN
+      </button>
+    </div>
+  </section>
 </body>
 </html>
