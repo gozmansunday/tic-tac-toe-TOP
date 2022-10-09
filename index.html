@@ -8,14 +8,14 @@
   <link rel="stylesheet" href="./css/main.css">
   <title>Tic Tac Toe</title>
 </head>
-<body class="grid grid-rows-[6rem_calc(100vh_-_6rem_-_12rem)_12rem] sm:grid-rows-[6rem_calc(100vh_-_6rem_-_16rem)_16rem] md:grid-rows-[7rem_calc(100vh_-_7rem_-_20rem)_20rem] lg:grid-rows-[7rem_calc(100vh_-_7rem_-_16rem)_16rem]">
+<body class="grid grid-rows-[5.5rem_calc(100%_-_5.5rem_-_10rem)_10rem] gap-2 sm:grid-rows-[6rem_calc(100%_-_6rem_-_12rem)_12rem] md:grid-rows-[7rem_calc(100%_-_7rem_-_16rem)_16rem] lg:grid-rows-[7rem_calc(100vh_-_7rem_-_16rem)_16rem] lg:gap-0 2xl:container 2xl:mx-auto ">
   <header class="py-2">
     <h1 class="text-7xl font-bebas text-dark text-center sm:text-[4.8rem] md:text-8xl">
       TIC TAC TOE
     </h1>
   </header>
 
-  <main class="flex flex-col justify-evenly items-center lg:grid lg:grid-cols-3">
+  <main class="flex flex-col justify-evenly items-center gap-2 lg:grid lg:grid-cols-3">
     <!-- Score Board -->
     <section id="score-board" class="font-shoulders text-dark flex gap-10 sm:gap-12 md:gap-20 lg:gap-10 lg:flex-col">
       <div id="player-one" class="grid grid-rows-[4fr_3fr] justify-center items-center text-center sm:grid-rows-[3fr_2fr]">
@@ -57,7 +57,7 @@
   </main>
 
   <!-- Game Info and Buttons -->
-  <section id="game-info-section" class="font-shoulders text-center pt-4 space-y-4 sm:pt-6 sm:space-y-6 md:space-y-10">
+  <section id="game-info-section" class="font-shoulders text-center pt-3 space-y-8 sm:pt-4 sm:space-y-14 md:pt-8 md:space-y-20 lg:space-y-16">
     <!-- Game Information -->
     <p id="game-info" class="text-4xl text-dark sm:text-[2.5rem] md:text-[3rem]">
       PLAYER 1 WINS THE GAME!
