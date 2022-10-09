@@ -593,8 +593,8 @@ video {
   }
 }
 
-.invisible{
-  visibility: hidden;
+.mt-4{
+  margin-top: 1rem;
 }
 
 .flex{
@@ -613,14 +613,6 @@ video {
   display: none;
 }
 
-.h-20{
-  height: 5rem;
-}
-
-.w-20{
-  width: 5rem;
-}
-
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -633,12 +625,16 @@ video {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.grid-rows-\[6rem_calc\(100vh_-_6rem_-_10rem\)_10rem\]{
-  grid-template-rows: 6rem calc(100vh - 6rem - 10rem) 10rem;
+.grid-rows-\[6rem_calc\(100vh_-_6rem_-_14rem\)_14rem\]{
+  grid-template-rows: 6rem calc(100vh - 6rem - 14rem) 14rem;
 }
 
 .grid-rows-\[4fr_3fr\]{
   grid-template-rows: 4fr 3fr;
+}
+
+.grid-rows-\[6rem_calc\(100vh_-_6rem_-_12rem\)_12rem\]{
+  grid-template-rows: 6rem calc(100vh - 6rem - 12rem) 12rem;
 }
 
 .flex-col{
@@ -653,10 +649,6 @@ video {
   justify-content: center;
 }
 
-.justify-around{
-  justify-content: space-around;
-}
-
 .justify-evenly{
   justify-content: space-evenly;
 }
@@ -669,32 +661,14 @@ video {
   gap: 1.25rem;
 }
 
-.gap-4{
-  gap: 1rem;
-}
-
-.border-\[4px\]{
-  border-width: 4px;
+.space-y-4 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .border-4{
   border-width: 4px;
-}
-
-.border-r-\[4px\]{
-  border-right-width: 4px;
-}
-
-.border-b-\[4px\]{
-  border-bottom-width: 4px;
-}
-
-.border-l-\[4px\]{
-  border-left-width: 4px;
-}
-
-.border-t-\[4px\]{
-  border-top-width: 4px;
 }
 
 .border-dark{
@@ -721,8 +695,8 @@ video {
   padding-right: 2rem;
 }
 
-.pb-6{
-  padding-bottom: 1.5rem;
+.pt-4{
+  padding-top: 1rem;
 }
 
 .text-center{
@@ -804,6 +778,8 @@ video {
 }
 
 .tictactoe-box{
+  height: 5rem;
+  width: 5rem;
   --tw-border-opacity: 1;
   border-color: rgb(37 37 37 / var(--tw-border-opacity));
 }
@@ -907,12 +883,34 @@ body {
     grid-template-rows: 3fr 2fr;
   }
 
+  .sm\:grid-rows-\[6rem_calc\(100vh_-_6rem_-_16rem\)_16rem\]{
+    grid-template-rows: 6rem calc(100vh - 6rem - 16rem) 16rem;
+  }
+
+  .sm\:grid-rows-\[6rem_calc\(100vh_-_6rem_-_20rem\)_20rem\]{
+    grid-template-rows: 6rem calc(100vh - 6rem - 20rem) 20rem;
+  }
+
   .sm\:gap-12{
     gap: 3rem;
   }
 
-  .sm\:pb-8{
-    padding-bottom: 2rem;
+  .sm\:space-y-6 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+  }
+
+  @media (min-width: 400px){
+    .sm\:sm\:space-y-6 > :not([hidden]) ~ :not([hidden]){
+      --tw-space-y-reverse: 0;
+      margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+      margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+    }
+  }
+
+  .sm\:pt-6{
+    padding-top: 1.5rem;
   }
 
   .sm\:text-\[4\.8rem\]{
@@ -946,8 +944,22 @@ body {
     grid-template-rows: 7rem calc(100vh - 7rem - 16rem) 16rem;
   }
 
+  .md\:grid-rows-\[7rem_calc\(100vh_-_7rem_-_24rem\)_24rem\]{
+    grid-template-rows: 7rem calc(100vh - 7rem - 24rem) 24rem;
+  }
+
+  .md\:grid-rows-\[7rem_calc\(100vh_-_7rem_-_20rem\)_20rem\]{
+    grid-template-rows: 7rem calc(100vh - 7rem - 20rem) 20rem;
+  }
+
   .md\:gap-20{
     gap: 5rem;
+  }
+
+  .md\:space-y-10 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
   }
 
   .md\:py-2{
@@ -958,10 +970,6 @@ body {
   .md\:px-10{
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-  }
-
-  .md\:pb-12{
-    padding-bottom: 3rem;
   }
 
   .md\:text-8xl{
@@ -1009,16 +1017,20 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:grid-rows-\[7rem_calc\(100vh_-_7rem_-_20rem\)_20rem\]{
+    grid-template-rows: 7rem calc(100vh - 7rem - 20rem) 20rem;
+  }
+
+  .lg\:grid-rows-\[7rem_calc\(100vh_-_7rem_-_16rem\)_16rem\]{
+    grid-template-rows: 7rem calc(100vh - 7rem - 16rem) 16rem;
+  }
+
   .lg\:flex-col{
     flex-direction: column;
   }
 
   .lg\:gap-10{
     gap: 2.5rem;
-  }
-
-  .lg\:pt-4{
-    padding-top: 1rem;
   }
 
   .lg\:text-7xl{
