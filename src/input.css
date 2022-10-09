@@ -10,7 +10,7 @@ body {
 
 @layer utilities {
   .tictactoe-box {
-    @apply border-dark w-20 h-20 sm:w-[5.6rem] sm:h-[5.6rem] md:w-[7rem] md:h-[7rem] al:w-[8rem] al:h-[8rem] lg:h-[6.8rem];
+    @apply border-dark w-20 h-20 sm:w-[5.6rem] sm:h-[5.6rem] md:w-[7rem] md:h-[7rem] al:w-[8rem] al:h-[8rem] lg:h-[6.4rem];
   }
   
   .box-border-1 {
