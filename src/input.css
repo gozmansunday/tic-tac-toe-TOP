@@ -10,7 +10,15 @@ body {
 
 @layer utilities {
   .tictactoe-box {
-    @apply border-dark w-20 h-20 sm:w-[5.6rem] sm:h-[5.6rem] md:w-[7rem] md:h-[7rem] al:w-[8rem] al:h-[8rem] lg:h-[6.4rem];
+    @apply flex justify-center items-center border-dark w-20 h-20 sm:w-[5.6rem] sm:h-[5.6rem] md:w-[7rem] md:h-[7rem] al:w-[8rem] al:h-[8rem] lg:w-[6.4rem] lg:h-[6.4rem];
+  }
+
+  .x-mark {
+    @apply text-dark text-[3.3rem] sm:text-[4.4rem] md:text-[5rem] lg:text-[5.5rem];
+  }
+
+  .o-mark {
+    @apply text-dark text-[2.5rem] sm:text-[3.25rem] md:text-6xl lg:text-7xl lg:order-last;
   }
   
   .box-border-1 {
