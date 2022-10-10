@@ -17,15 +17,16 @@ module.exports = {
         brand: "#909090",
         dark: "#252525",
         mid: "#BBBBBB",
-        light: "#FFFFFF"
+        light: "#FFFFFF",
+        overlay: "#00000077",
       },
       fontFamily: {
         shoulders: ['Big Shoulders Text', 'cursive'],
         bebas: ['Bebas Neue', 'cursive'],
       },
       boxShadow: {
-        'card': '0 12px 12px -3px rgba(0, 0, 0, 0.3)',
-        'button': '.5rem .5rem #252525',
+        // 'card': '0 12px 12px -3px rgba(0, 0, 0, 0.3)',
+        'card': '0px 5px 15px rgba(0, 0, 0, 0.35)',
       },
     },
     colors: ({ colors }) => ({
