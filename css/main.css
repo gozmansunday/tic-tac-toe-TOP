@@ -1049,6 +1049,10 @@ body {
     grid-template-rows: 3fr 2fr;
   }
 
+  .sm\:gap-4{
+    gap: 1rem;
+  }
+
   .sm\:gap-12{
     gap: 3rem;
   }
@@ -1069,6 +1073,11 @@ body {
     --tw-space-y-reverse: 0;
     margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+  }
+
+  .sm\:py-4{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   .sm\:pt-4{
@@ -1188,6 +1197,10 @@ body {
     gap: 0px;
   }
 
+  .lg\:gap-2{
+    gap: 0.5rem;
+  }
+
   .lg\:gap-10{
     gap: 2.5rem;
   }
@@ -1196,6 +1209,11 @@ body {
     --tw-space-y-reverse: 0;
     margin-top: calc(4rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(4rem * var(--tw-space-y-reverse));
+  }
+
+  .lg\:py-0{
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .lg\:text-7xl{
