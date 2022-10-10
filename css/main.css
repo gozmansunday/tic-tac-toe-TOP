@@ -1049,12 +1049,12 @@ body {
     grid-template-rows: 3fr 2fr;
   }
 
-  .sm\:gap-12{
-    gap: 3rem;
-  }
-
   .sm\:gap-4{
     gap: 1rem;
+  }
+
+  .sm\:gap-12{
+    gap: 3rem;
   }
 
   .sm\:space-y-14 > :not([hidden]) ~ :not([hidden]){
@@ -1073,11 +1073,6 @@ body {
     --tw-space-y-reverse: 0;
     margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-  }
-
-  .sm\:py-3{
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
   }
 
   .sm\:py-4{
@@ -1202,12 +1197,12 @@ body {
     gap: 0px;
   }
 
-  .lg\:gap-10{
-    gap: 2.5rem;
-  }
-
   .lg\:gap-2{
     gap: 0.5rem;
+  }
+
+  .lg\:gap-10{
+    gap: 2.5rem;
   }
 
   .lg\:space-y-16 > :not([hidden]) ~ :not([hidden]){

@@ -41,25 +41,27 @@ const Player = (() => {
   const playerODisp = document.querySelector('#player-o-disp');
   const startGameBtn = document.querySelector('#start-game-btn');
 
-  const PlayerFactory = (name) => {
-    return {name};
+  const PlayerFactory = (name, toPlay) => {
+    return {name, toPlay};
   };
+
+  const playerX = PlayerFactory(playerXInput.value, true);
+  const playerO = PlayerFactory(playerOInput.value, false);
 
   startGameBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (playerXInput.value === '' || playerOInput.value === '') return;
 
-    const playerX = PlayerFactory(playerXInput.value);
-    const playerO = PlayerFactory(playerOInput.value);
     const playerXName = playerXInput.value.toUpperCase();
     const playerOName = playerOInput.value.toUpperCase();
     playerXDisp.textContent = playerXName;
     playerODisp.textContent = playerOName;
 
     GameBoard.display();
-    return {playerXName, playerOName};
   });
+
+  return {playerX, playerO};
 })();
 
 // Module to control flow of game
@@ -69,8 +71,11 @@ const GameFlow = (() => {
   const gameBoard = GameBoard.gameBoard;
   let gameBoardArray = GameBoard.gameBoardArray;
   const noOfBoxes = gameBoardArray.length;
+  let playerX = Player.playerX;
+  let playerO = Player.playerO;
   let coordinatesX = [];
   let coordinatesO = [];
+  let gameIsOver = false;
 
   // Function to determine if X or O should be placed in the box when it's clicked
   const checkTurn = () => {
@@ -80,7 +85,7 @@ const GameFlow = (() => {
         unclicked++;
       }
     }
-
+    
     if ((unclicked % 2) === 1) {
       return true;
     } else {
@@ -95,7 +100,11 @@ const GameFlow = (() => {
       let boxIndex = box.dataset.index - 1;
       
       if (box.classList.contains('tictactoe-box')) {
-        if (gameBoardArray[boxIndex].clicked === false && checkWin() === false) {
+        if (gameBoardArray[boxIndex].clicked === false && gameIsOver === false) {
+          if (playerX.toPlay === false && playerO.toPlay === true) {
+            gameBoardArray[boxIndex].clicked = true;
+          }
+
           if (checkTurn()) {
             gameBoardArray[boxIndex].mark = 'X';
             box.innerHTML = Mark.xmark;
@@ -104,12 +113,16 @@ const GameFlow = (() => {
             box.innerHTML = Mark.omark;
           }
           
-          gameBoardArray[boxIndex].clicked = true;
+          if (playerX.toPlay === true && playerO.toPlay === false) {
+            gameBoardArray[boxIndex].clicked = true;
+          }
           checkGame(boxIndex);
         }
       }
     });
   };
+
+  showMark();
 
   // Function to check game
   function checkGame(boxIndex) {
@@ -127,36 +140,40 @@ const GameFlow = (() => {
   function checkWin() {
     const playerXDisp = document.querySelector('#player-x-disp');
     const playerODisp = document.querySelector('#player-o-disp');
-    const playerX = playerXDisp.textContent;
-    const playerO = playerODisp.textContent;
+    const playerXName = playerXDisp.textContent;
+    const playerOName = playerODisp.textContent;
 
     if ((coordinatesX.includes(0) && coordinatesX.includes(1) && coordinatesX.includes(2)) || (coordinatesX.includes(3) && coordinatesX.includes(4) && coordinatesX.includes(5)) || (coordinatesX.includes(6) && coordinatesX.includes(7) && coordinatesX.includes(8)) || (coordinatesX.includes(0) && coordinatesX.includes(3) && coordinatesX.includes(6)) || (coordinatesX.includes(1) && coordinatesX.includes(4) && coordinatesX.includes(7)) || (coordinatesX.includes(2) && coordinatesX.includes(5) && coordinatesX.includes(8)) || (coordinatesX.includes(0) && coordinatesX.includes(4) && coordinatesX.includes(8)) || (coordinatesX.includes(2) && coordinatesX.includes(4) && coordinatesX.includes(6))) {
-      console.log(`${playerX} WINS!`);
-      gameInfo.textContent = `${playerX} WINS!`;
+      console.log(`${playerXName} WINS!`);
+      gameIsOver = true;
+      gameInfo.textContent = `${playerXName} WINS!`;
       GameBoard.gameInfoSection.classList.remove('invisible');
-      return true;
+      playerO.toPlay = true;
+      playerX.toPlay = false;
     } else if (((coordinatesO.includes(0) && coordinatesO.includes(1) && coordinatesO.includes(2)) || (coordinatesO.includes(3) && coordinatesO.includes(4) && coordinatesO.includes(5)) || (coordinatesO.includes(6) && coordinatesO.includes(7) && coordinatesO.includes(8)) || (coordinatesO.includes(0) && coordinatesO.includes(3) && coordinatesO.includes(6)) || (coordinatesO.includes(1) && coordinatesO.includes(4) && coordinatesO.includes(7)) || (coordinatesO.includes(2) && coordinatesO.includes(5) && coordinatesO.includes(8)) || (coordinatesO.includes(0) && coordinatesO.includes(4) && coordinatesO.includes(8)) || (coordinatesO.includes(2) && coordinatesO.includes(4) && coordinatesO.includes(6)))) {
-      console.log(`${playerO} WINS!`);
-      gameInfo.textContent = `${playerO} WINS!`;
+      console.log(`${playerOName} WINS!`);
+      gameIsOver = true;
+      gameInfo.textContent = `${playerOName} WINS!`;
       GameBoard.gameInfoSection.classList.remove('invisible');
-      return true;
-    } else {
-      return false;
+      playerX.toPlay = true;
+      playerO.toPlay = false;
     }
 
-    for (let i = 0; i < noOfBoxes; i++) {
-      if (gameBoardArray[i].clicked === false) {
-        gameBoardArray[i].clicked === true;
-      }
+    if (gameBoardArray[0].clicked === true && gameBoardArray[1].clicked === true && gameBoardArray[2].clicked === true && gameBoardArray[3].clicked === true && gameBoardArray[4].clicked === true && gameBoardArray[5].clicked === true && gameBoardArray[6].clicked === true && gameBoardArray[7].clicked === true && gameBoardArray[8].clicked === true) {
+      console.log(`IT'S A TIE!`);
+      gameIsOver = true;
+      gameInfo.textContent = `IT'S A TIE!`;
+      GameBoard.gameInfoSection.classList.remove('invisible');
     }
   }
 
   playAgainBtn.addEventListener('click', () => {
     GameBoard.display();
     GameBoard.gameInfoSection.classList.add('invisible');
+    gameIsOver = false;
+    coordinatesX = [];
+    coordinatesO = [];
   });
-
-  showMark();
 })();
 
 // Module for player marks
