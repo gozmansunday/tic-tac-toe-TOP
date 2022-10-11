@@ -182,9 +182,7 @@ const GameFlow = (() => {
       GameBoard.playAgainBtn.classList.remove('invisible');
       playerX.toPlay = true;
       playerO.toPlay = false;
-    }
-
-    if (gameBoardArray[0].clicked === true && gameBoardArray[1].clicked === true && gameBoardArray[2].clicked === true && gameBoardArray[3].clicked === true && gameBoardArray[4].clicked === true && gameBoardArray[5].clicked === true && gameBoardArray[6].clicked === true && gameBoardArray[7].clicked === true && gameBoardArray[8].clicked === true) {
+    } else if (gameBoardArray[0].clicked === true && gameBoardArray[1].clicked === true && gameBoardArray[2].clicked === true && gameBoardArray[3].clicked === true && gameBoardArray[4].clicked === true && gameBoardArray[5].clicked === true && gameBoardArray[6].clicked === true && gameBoardArray[7].clicked === true && gameBoardArray[8].clicked === true) {
       console.log(`IT'S A TIE!`);
       gameIsOver = true;
       gameInfo.textContent = `IT'S A TIE!`;
