@@ -891,14 +891,6 @@ video {
   transition-duration: 150ms;
 }
 
-.duration-200{
-  transition-duration: 200ms;
-}
-
-.duration-100{
-  transition-duration: 100ms;
-}
-
 .duration-75{
   transition-duration: 75ms;
 }
@@ -1063,6 +1055,31 @@ body {
 @keyframes scale-up-center {
   0% {
     transform:scale(.9);
+  }
+
+  100% {
+    transform:scale(1);
+  }
+}
+
+.tictactoe-box > i {
+  -webkit-animation: scale-down-center 0.5s ease 0s 1 normal none;
+          animation: scale-down-center 0.5s ease 0s 1 normal none;
+}
+
+@-webkit-keyframes scale-down-center {
+  0% {
+    transform:scale(1.15);
+  }
+
+  100% {
+    transform:scale(1);
+  }
+}
+
+@keyframes scale-down-center {
+  0% {
+    transform:scale(1.15);
   }
 
   100% {
@@ -1282,10 +1299,6 @@ body {
 
   .lg\:duration-300{
     transition-duration: 300ms;
-  }
-
-  .lg\:duration-200{
-    transition-duration: 200ms;
   }
 
   .lg\:ease-in-out{

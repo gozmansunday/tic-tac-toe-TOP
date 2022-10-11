@@ -21,6 +21,19 @@ body {
   }
 }
 
+.tictactoe-box > i {
+  animation: scale-down-center 0.5s ease 0s 1 normal none;
+}
+
+@keyframes scale-down-center {
+  0% {
+    transform:scale(1.15);
+  }
+  100% {
+    transform:scale(1);
+  }
+}
+
 @layer utilities {
   .tictactoe-box {
     @apply flex justify-center items-center border-dark w-20 h-20 sm:w-[5.6rem] sm:h-[5.6rem] md:w-[7rem] md:h-[7rem] al:w-[8rem] al:h-[8rem] lg:w-[6.4rem] lg:h-[6.4rem];
