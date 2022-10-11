@@ -5,7 +5,8 @@ const GameBoard = (() => {
   const gameBoard = document.querySelector('#game-board');
   const playerNameModal = document.querySelector('#player-name-modal');
   const mainSection = document.querySelector('main');
-  const gameInfoSection = document.querySelector('#game-info-section');
+  const gameInfo = document.querySelector('#game-info');
+  const playAgainBtn = document.querySelector('#play-again-btn');
   let gameBoardArray = ["", "", "", "", "", "", "", "", ""];
 
   // Factory function for box state
@@ -14,6 +15,13 @@ const GameBoard = (() => {
   };
   
   const display = () => {
+    const playerXDisp = document.querySelector('#player-x-disp');
+    const playerODisp = document.querySelector('#player-o-disp');
+    const playerXName = playerXDisp.textContent;
+    const playerOName = playerODisp.textContent;
+    let playerX = Player.playerX;
+    let playerO = Player.playerO;
+
     const noOfBoxes = gameBoardArray.length;
     gameBoard.innerHTML = '';
 
@@ -27,10 +35,19 @@ const GameBoard = (() => {
 
     playerNameModal.classList.replace('flex', 'hidden');
     mainSection.classList.remove('invisible');
+
+    if (playerX.toPlay === true && playerO.toPlay === false) {
+      gameInfo.textContent = `${playerXName} TO START THE GAME!`
+      gameInfo.classList.remove('invisible');
+    } else if (playerX.toPlay === false && playerO.toPlay === true) {
+      gameInfo.textContent = `${playerOName} TO START THE GAME!`
+      gameInfo.classList.remove('invisible');
+    }
+
     console.log(gameBoardArray); //! REMOVE LATER
   };
 
-  return {gameBoard, gameBoardArray, display, gameInfoSection};
+  return {gameBoard, gameBoardArray, display, gameInfo, playAgainBtn};
 })();
 
 // Module to create players
@@ -96,6 +113,10 @@ const GameFlow = (() => {
   // Function to place X or O in the box when it is clicked
   const showMark = () => {
     gameBoard.addEventListener('click', (e) => {
+      const playerXDisp = document.querySelector('#player-x-disp');
+      const playerODisp = document.querySelector('#player-o-disp');
+      const playerXName = playerXDisp.textContent;
+      const playerOName = playerODisp.textContent;
       let box = e.target;
       let boxIndex = box.dataset.index - 1;
       
@@ -108,9 +129,11 @@ const GameFlow = (() => {
           if (checkTurn()) {
             gameBoardArray[boxIndex].mark = 'X';
             box.innerHTML = Mark.xmark;
+            gameInfo.textContent = `${playerOName}'S TURN!`;
           } else {
             gameBoardArray[boxIndex].mark = 'O';
             box.innerHTML = Mark.omark;
+            gameInfo.textContent = `${playerXName}'S TURN!`;
           }
           
           if (playerX.toPlay === true && playerO.toPlay === false) {
@@ -147,14 +170,16 @@ const GameFlow = (() => {
       console.log(`${playerXName} WINS!`);
       gameIsOver = true;
       gameInfo.textContent = `${playerXName} WINS!`;
-      GameBoard.gameInfoSection.classList.remove('invisible');
+      GameBoard.gameInfo.classList.remove('invisible');
+      GameBoard.playAgainBtn.classList.remove('invisible');
       playerO.toPlay = true;
       playerX.toPlay = false;
     } else if (((coordinatesO.includes(0) && coordinatesO.includes(1) && coordinatesO.includes(2)) || (coordinatesO.includes(3) && coordinatesO.includes(4) && coordinatesO.includes(5)) || (coordinatesO.includes(6) && coordinatesO.includes(7) && coordinatesO.includes(8)) || (coordinatesO.includes(0) && coordinatesO.includes(3) && coordinatesO.includes(6)) || (coordinatesO.includes(1) && coordinatesO.includes(4) && coordinatesO.includes(7)) || (coordinatesO.includes(2) && coordinatesO.includes(5) && coordinatesO.includes(8)) || (coordinatesO.includes(0) && coordinatesO.includes(4) && coordinatesO.includes(8)) || (coordinatesO.includes(2) && coordinatesO.includes(4) && coordinatesO.includes(6)))) {
       console.log(`${playerOName} WINS!`);
       gameIsOver = true;
       gameInfo.textContent = `${playerOName} WINS!`;
-      GameBoard.gameInfoSection.classList.remove('invisible');
+      GameBoard.gameInfo.classList.remove('invisible');
+      GameBoard.playAgainBtn.classList.remove('invisible');
       playerX.toPlay = true;
       playerO.toPlay = false;
     }
@@ -163,13 +188,14 @@ const GameFlow = (() => {
       console.log(`IT'S A TIE!`);
       gameIsOver = true;
       gameInfo.textContent = `IT'S A TIE!`;
-      GameBoard.gameInfoSection.classList.remove('invisible');
+      GameBoard.gameInfo.classList.remove('invisible');
+      GameBoard.playAgainBtn.classList.remove('invisible');
     }
   }
 
   playAgainBtn.addEventListener('click', () => {
     GameBoard.display();
-    GameBoard.gameInfoSection.classList.add('invisible');
+    GameBoard.playAgainBtn.classList.add('invisible');
     gameIsOver = false;
     coordinatesX = [];
     coordinatesO = [];
