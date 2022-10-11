@@ -1049,8 +1049,8 @@ body {
     grid-template-rows: 3fr 2fr;
   }
 
-  .sm\:gap-4{
-    gap: 1rem;
+  .sm\:gap-6{
+    gap: 1.5rem;
   }
 
   .sm\:gap-12{
@@ -1075,9 +1075,9 @@ body {
     margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
   }
 
-  .sm\:py-4{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  .sm\:py-6{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .sm\:pt-4{
